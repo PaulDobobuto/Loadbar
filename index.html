@@ -31,10 +31,10 @@
       height: 30px;
       background-color: #4CAF50;
       text-align: center;
-      line-height: 30px; /* Centra el texto verticalmente */
+      line-height: 30px;
       color: white;
       font-weight: bold;
-      transition: width 1s; /* Suaviza la animación */
+      transition: width 1s;
     }
     
     button {
@@ -49,7 +49,7 @@
     }
 
     button:hover {
-      background-color: #45a049; /* Cambia el color al pasar el mouse */
+      background-color: #45a049;
     }
   </style>
 </head>
@@ -68,12 +68,12 @@
   <script>
     function move() {
       var elem = document.getElementById("myBar");
-      var width = 0; // Comenzamos desde 0%
+      var width = 0;
       
-      // Para llenar la barra en una hora (3600000 ms)
+    
       var totalTime = 3600000; 
       
-      // Intervalo de actualización basado en el tiempo total (100 actualizaciones para llegar a un total de 100%)
+      
       var intervalTime = totalTime / 100; 
       
       var id = setInterval(frame, intervalTime);
@@ -84,7 +84,7 @@
         } else {
           width++;
           elem.style.width = width + '%';
-          elem.innerHTML = width + '%'; // Muestra el porcentaje dentro de la barra
+          elem.innerHTML = width + '%';
         }
       }
     }
