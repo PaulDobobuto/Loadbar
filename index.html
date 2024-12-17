@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: black;
+      text-align: center;
+      padding: 50px;
+      color: wheat;
+      background-image: url (image_processing20210502-6898-15okcgr.gif)
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    #myProgress {
+      width: 100%;
+      background-color: gray;
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    #myBar {
+      width: 0%;
+      height: 30px;
+      background-color: #4CAF50;
+      text-align: center;
+      line-height: 30px; /* Centra el texto verticalmente */
+      color: white;
+      font-weight: bold;
+      transition: width 1s; /* Suaviza la animación */
+    }
+    
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049; /* Cambia el color al pasar el mouse */
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Barra de Carga</h1>
+  <p>¡Ayúdame a llegar a 100%!</p>
+
+  <div id="myProgress">
+    <div id="myBar">0%</div>
+  </div>
+
+  <button onclick="move()">Click Me</button>
+
+  <script>
+    function move() {
+      var elem = document.getElementById("myBar");
+      var width = 0; // Comenzamos desde 0%
+      
+      // Para llenar la barra en una hora (3600000 ms)
+      var totalTime = 3600000; 
+      
+      // Intervalo de actualización basado en el tiempo total (100 actualizaciones para llegar a un total de 100%)
+      var intervalTime = totalTime / 100; 
+      
+      var id = setInterval(frame, intervalTime);
+
+      function frame() {
+        if (width >= 100) {
+          clearInterval(id);
+        } else {
+          width++;
+          elem.style.width = width + '%';
+          elem.innerHTML = width + '%'; // Muestra el porcentaje dentro de la barra
+        }
+      }
+    }
+  </script>
+
+</body>
+
+</html>
